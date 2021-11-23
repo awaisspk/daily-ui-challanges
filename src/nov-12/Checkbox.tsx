@@ -16,7 +16,6 @@ const StyledCheckbox = styled(CheckboxPrimitive.Root, {
   transition: 'backgroundColor 900ms',
   outline: 'none',
   boxShadow: '0 0 0 3px #DFDDF1',
-  mb : '$2',
   '&[data-state="checked"]': {
     backgroundColor: 'rgba(22,24,45,0.9)',
   },
@@ -56,7 +55,7 @@ export const Checkbox = (props: CheckBoxProps) => {
   };
 
   return (
-    <Flex center gap="3" css={{alignSelf :'start'}}>
+    <Flex center gap="3" css={{alignSelf: 'start',mb :'$2'}}>
       <StyledCheckbox id={id} onCheckedChange={handleCheckChange}>
         <CheckboxIndicator>
           <CheckIcon />
