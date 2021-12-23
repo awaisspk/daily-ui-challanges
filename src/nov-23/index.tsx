@@ -5,7 +5,7 @@ import {useEffect, useState} from 'react';
 import {Checkbox} from './Checkbox';
 import {Progress} from './Progress';
 
-export const Nov12 = () => {
+export const Nov23 = () => {
   const [percentage, setPercentage] = useState(0);
   useEffect(() => {
     console.log(percentage);
