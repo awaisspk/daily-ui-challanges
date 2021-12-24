@@ -1,4 +1,5 @@
 import type {NextPage} from 'next';
+import {Dec24} from 'src/december/dec24';
 import {Framer} from 'src/december/framer';
 import {Loading} from 'src/december/Loading';
 import {MobileNav} from 'src/december/nav';
@@ -16,7 +17,8 @@ const Home: NextPage = () => {
       {/* <MobileNav /> */}
       {/* <Framer/> */}
       {/* <Loading /> */}
-      <JobSearch />
+      {/* <JobSearch /> */}
+      <Dec24 />
     </div>
   );
 };
