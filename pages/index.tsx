@@ -3,6 +3,7 @@ import {Dec24} from 'src/december/dec24';
 import {Framer} from 'src/december/framer';
 import {Loading} from 'src/december/Loading';
 import {MobileNav} from 'src/december/nav';
+import {Nav25} from 'src/december/nav25';
 import {JobSearch} from 'src/december/Search';
 import {Nov23} from 'src/nov-23';
 import {NOV24} from 'src/nov-24';
@@ -18,7 +19,8 @@ const Home: NextPage = () => {
       {/* <Framer/> */}
       {/* <Loading /> */}
       {/* <JobSearch /> */}
-      <Dec24 />
+      {/* <Dec24 /> */}
+      <Nav25 />
     </div>
   );
 };

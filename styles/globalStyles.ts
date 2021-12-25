@@ -33,6 +33,8 @@ export const globalStyles = globalCss({
 
   body: {
     lineHeight: 1.5,
+    backgroundColor: '#EBEBFB',
+    // height : '200vh'
   },
 
   'h1, h2, h3, h4,li,p': {
