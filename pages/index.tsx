@@ -16,11 +16,11 @@ const Home: NextPage = () => {
       {/* <NOV24 /> */}
       {/* <Nov25 /> */}
       {/* <MobileNav /> */}
-      {/* <Framer/> */}
+      <Framer/>
       {/* <Loading /> */}
       {/* <JobSearch /> */}
       {/* <Dec24 /> */}
-      <Nav25 />
+      {/* <Nav25 /> */}
     </div>
   );
 };

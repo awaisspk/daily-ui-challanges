@@ -1,84 +1,52 @@
 import {Box} from '@components/Box';
 import {Container} from '@components/Container';
-import {motion} from 'framer-motion';
+import {motion, useMotionValue, useTransform} from 'framer-motion';
+import {useRef} from 'react';
 
 const SVG = () => {
+  const x = useMotionValue(0);
+  const input = [0, 100];
+
+  const keyframes = [
+    'M 17,10 C 17,10 25.05562,18.111008 32,25 25.283226,31.494766 17,40 17,40',
+    'M 32.858258,10 C 32.858258,10 24.802638,18.111008 17.858258,25 24.575032,31.494766 32.858258,40 32.858258,40',
+  ];
+
+  const d = useTransform(x, input, keyframes);
+  const constrainRef = useRef(null);
+
   return (
-    <Box
-      css={{
-        width: '100vw',
-        height: '100vh',
-        // backgroundColor: 'blue',
-        padding: '200px',
-      }}
-    >
-      <svg
-        width="200px"
-        height="200px"
-        viewBox="10 10 100 100"
-        style={{
-          backgroundColor: 'red',
-          overflow: 'visible',
+    <Container center>
+      <Box
+        css={{
+          width: 200,
+          height: 200,
+          borderRadius: '20px',
+          backgroundColor: 'rgba(138,74,243,1)',
         }}
+        ref={constrainRef}
       >
-        <motion.circle
-          fill="orange"
-          cx="50%"
-          cy="50%"
-          r="50%"
-          strokeWidth="0"
-          stroke="#000"
-        />
-        <line
-          x1="0%"
-          x2="100%"
-          y1="50%"
-          y2="50%"
-          strokeWidth="5%"
-          stroke="green"
-        />
-        <polygon points="0,0 50,50 100,0" fill="lime" />
-        <polyline points="0,0 50,50" strokeWidth="1" stroke="blue" />
-      </svg>
-      <Example />
-    </Box>
+        <Box
+          as={motion.div}
+          css={{
+            width: 70,
+            height: 70,
+            borderRadius: '10px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          drag
+          style={{x}}
+          dragConstraints={constrainRef}
+        >
+          <motion.svg width="40" height="40" viewBox="0 5 40 40">
+            <motion.path fill="none" stroke="#000" strokeWidth="2" d={d} />
+          </motion.svg>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 
 export default SVG;
-
-export const Example = () => {
-  return (
-    <Container center css={{position: 'relative', zIndex: 1}}>
-      <Box
-        css={{
-          position: 'absolute',
-          zIndex: 3,
-          width: 200,
-          height: 200,
-          backgroundColor: 'rgba(222,22,22,1)',
-          '&:before': {
-            content: '',
-            position: 'absolute',
-            transform: 'translate(120%,120%)',
-            zIndex: 2,
-            width: 100,
-            height: 100,
-            backgroundColor: 'Orange',
-          },
-        }}
-      ></Box>
-
-      <Box
-        css={{
-          position: 'absolute',
-          transform: 'translate(-100%,-100%)',
-          zIndex: 2,
-          width: 100,
-          height: 100,
-          backgroundColor: 'blue',
-        }}
-      ></Box>
-    </Container>
-  );
-};
