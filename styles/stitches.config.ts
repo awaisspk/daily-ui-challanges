@@ -4,8 +4,9 @@ import type * as Stitches from '@stitches/react';
 const StitchesConfig = createStitches({
   theme: {
     colors: {},
+
     fonts: {
-      primary: 'Inter',
+      primary: 'Inter', // set your font
     },
 
     fontSizes: {
@@ -147,12 +148,19 @@ const StitchesConfig = createStitches({
     dark: '(prefers-color-scheme: dark)',
     light: '(prefers-color-scheme: light)',
     hover: '(any-hover : hover)',
-    bp1: '(min-width: 30em)',
-    bp2: '(min-width: 40em)',
-    bp3: '(min-width: 48em)',
-    bp4: '(min-width: 62em)',
-    bp5: '(min-width: 80em)',
-    bp6: '(min-width: 90em)',
+    bp1: '(min-width: 30em)', // 480px
+    bp2: '(min-width: 40em)', // 640px
+    bp3: '(min-width: 48em)', // 768px
+    bp4: '(min-width: 62em)', // 992px
+    bp5: '(min-width: 80em)', // 1280px
+    bp6: '(min-width: 90em)', // 1440px
+
+    bpmax1: '(max-width: 30em)',
+    bpmax2: '(max-width: 40em)',
+    bpmax3: '(max-width: 48em)',
+    bpmax4: '(max-width: 62em)',
+    bpmax5: '(max-width: 80em)',
+    bpmax6: '(max-width: 90em)',
   },
   utils: {
     bc: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
@@ -219,40 +227,61 @@ const StitchesConfig = createStitches({
     ml: (value: Stitches.PropertyValue<'marginLeft'>) => ({
       marginLeft: value,
     }),
-
-    linearGradient: ([startColor, endColor]: [string, string]) => ({
-      backgroundImage: `linear-gradient(${startColor},${endColor})`,
-    }),
     minH: (value: Stitches.PropertyValue<'minHeight'>) => ({
       minHeight: value,
     }),
     maxH: (value: Stitches.PropertyValue<'maxHeight'>) => ({
       maxHeight: value,
     }),
-
+    us: (value: Stitches.PropertyValue<'userSelect'>) => ({
+      WebkitUserSelect: value,
+      userSelect: value,
+    }),
+    bs: (value: Stitches.PropertyValue<'boxShadow'>) => ({boxShadow: value}),
+    lh: (value: Stitches.PropertyValue<'lineHeight'>) => ({
+      lineHeight: value,
+    }),
+    ai: (value: Stitches.PropertyValue<'alignItems'>) => ({
+      alignItems: value,
+    }),
+    ac: (value: Stitches.PropertyValue<'alignContent'>) => ({
+      alignContent: value,
+    }),
+    jc: (value: Stitches.PropertyValue<'justifyContent'>) => ({
+      justifyContent: value,
+    }),
+    ta: (value: Stitches.PropertyValue<'textAlign'>) => ({textAlign: value}),
+    fd: (value: Stitches.PropertyValue<'flexDirection'>) => ({
+      flexDirection: value,
+    }),
+    fw: (value: Stitches.PropertyValue<'flexWrap'>) => ({flexWrap: value}),
+    as: (value: Stitches.PropertyValue<'alignSelf'>) => ({alignSelf: value}),
+    fg: (value: Stitches.PropertyValue<'flexGrow'>) => ({flexGrow: value}),
+    fs: (value: Stitches.PropertyValue<'flexShrink'>) => ({
+      flexShrink: value,
+    }),
+    fb: (value: Stitches.PropertyValue<'flexBasis'>) => ({flexBasis: value}),
+    ox: (value: Stitches.PropertyValue<'overflowX'>) => ({overflowX: value}),
+    oy: (value: Stitches.PropertyValue<'overflowY'>) => ({overflowY: value}),
+    pe: (value: Stitches.PropertyValue<'pointerEvents'>) => ({
+      pointerEvents: value,
+    }),
+    userSelect: (value: Stitches.PropertyValue<'userSelect'>) => ({
+      WebkitUserSelect: value,
+      userSelect: value,
+    }),
     appearance: (value: Stitches.PropertyValue<'appearance'>) => ({
       appearance: value,
       MozAppearance: value,
       WebkitAppearance: value,
     }),
-    box: (value: Stitches.PropertyValue<'width'>) => ({
+    backgroundClip: (value: Stitches.PropertyValue<'backgroundClip'>) => ({
+      WebkitBackgroundClip: value,
+      backgroundClip: value,
+    }),
+    size: (value: Stitches.PropertyValue<'width'>) => ({
       width: value,
       height: value,
-    }),
-
-    fuildFontSize: ([minVw, maxVw, minFs, maxFs]: [
-      number,
-      number,
-      number,
-      number
-    ]) => ({
-      fontSize: `${minFs}rem`,
-      '@bp1': {
-        fontSize: `calc(${minFs}rem + (((100vw - ${minVw}rem) / (${maxVw} - ${minVw}))) * (${maxFs} - ${minFs}))`,
-      },
-      '@bp4': {
-        fontSize: `${maxFs}rem`,
-      },
     }),
   },
 });
