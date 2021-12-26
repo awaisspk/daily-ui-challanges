@@ -1,4 +1,5 @@
 import type {NextPage} from 'next';
+import {CssConceptsPart1} from 'src/december/cssconcepts/3dbox';
 import {Dec24} from 'src/december/dec24';
 import {Framer} from 'src/december/framer';
 import {Loading} from 'src/december/Loading';
@@ -16,11 +17,12 @@ const Home: NextPage = () => {
       {/* <NOV24 /> */}
       {/* <Nov25 /> */}
       {/* <MobileNav /> */}
-      <Framer/>
+      {/* <Framer/> */}
       {/* <Loading /> */}
       {/* <JobSearch /> */}
       {/* <Dec24 /> */}
       {/* <Nav25 /> */}
+      <CssConceptsPart1 />
     </div>
   );
 };

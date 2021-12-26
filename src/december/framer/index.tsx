@@ -5,51 +5,40 @@ import * as SliderPrimitive from '@radix-ui/react-slider';
 import {motion} from 'framer-motion';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {Flex} from '@components/Flex';
+import Image from 'next/image';
 
 export const Framer = () => {
-  const [x, setX] = useState([0]);
-  const [y, setY] = useState([0]);
   return (
-    <Container center>
-      <Box
-        css={{
-          backgroundColor: 'blue',
-          position: 'relative',
-          width: 200,
-          height: 200,
-          borderRadius: '10px',
-          transformOrigin: `${x}% ${y}%`,
-          transform: 'translateX(400px) rotate(45deg)',
-        }}
-        as={motion.div}
-        // animate={{rotate: 360}}
-        // transition={{repeat: Infinity, duration: 2}}
-      >
-        <Box
-          css={{
-            width: 10,
-            height: 10,
-            borderRadius: '10px',
-            transform: `translate(calc(${x}px + ${x}px) ,calc(${y}px + ${y}px)) `,
-            // transform: `translate(95px,95px)`,
-            backgroundColor: 'red',
-            position: 'absolute',
-          }}
-        />
-      </Box>
-      <Box css={{position: 'absolute', top: 100, left: 100}}>
-        <Flex gap="3">
-          <Slider value={x} setValue={setX} />
-          <span>{x}</span>
-        </Flex>
-        <Flex gap="3">
-          <Slider value={y} setValue={setY} />
-          <span>{y}</span>
-        </Flex>
-      </Box>
+    <Container center css={{backgroundColor: '#0099CC'}}>
+      <Title>
+        <Hover data-content="HOVER">HOVER</Hover>
+      </Title>
     </Container>
   );
 };
+
+const Title = styled('div', {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%,-50%)',
+  perspective: '300px',
+  perspectiveOrigin: '50% 50%',
+});
+
+const Hover = styled('h1', {
+  textAlign: 'center',
+  fontSize: '12vmin',
+  color: 'hsl(100 100% 0% / 0.8)',
+  lineHeight: '1rem',
+  transform: 'rotateY(50deg)',
+  perspective: '150px',
+  perspectiveOrigin: '0% 50%',
+  transition : '300ms',
+  '&:hover': {
+    transform: 'rotateY(0deg)',
+  },
+});
 
 const StyledSlider = styled(SliderPrimitive.Root, {
   position: 'relative',
